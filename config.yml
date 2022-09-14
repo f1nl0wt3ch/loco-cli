@@ -10,4 +10,5 @@ default:
   translations:
   - file: /Users/thinhdinh/Documents/Repo/lsp-inspector-front/src/locales/fi.json
     format: chrome
+    file_extension: json
     locale: fi-FI
