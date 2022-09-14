@@ -1,0 +1,13 @@
+default:
+  api:
+    token: 'R0IjZm9-BZMYuvMHhBrCEDJYHtL9qOQnn'
+  pull: {}
+  push:
+    delete-absent: 'false'
+    ignore-existing: 'false'
+    ignore-new: 'false'
+    index: id
+  translations:
+  - file: /Users/thinhdinh/Documents/Repo/lsp-inspector-front/src/locales/fi.json
+    format: chrome
+    locale: fi-FI

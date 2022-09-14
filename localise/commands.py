@@ -31,8 +31,9 @@ def config(args):
             ),
             translations=[
                 dict(
-                    locale='en-US',
-                    format='po',
+                    locale='fi-FI',
+                    format='chrome',
+                    file_extension='json',
                     file='/tmp/locale/en/messages.po'
                 )
             ],
@@ -79,7 +80,7 @@ def push(conf, args):
             key=token,
             locale=translation['locale']
         ))
-        url = get_url(conf) + 'import/%s' % (translation['format'])
+        url = get_url(conf) + 'import/%s' % (translation['file_extension'])
 
         response = requests.post(url, params=params, data=file.encode('utf-8'))
         if response.status_code == 401:
@@ -113,7 +114,7 @@ def pull(conf, args):
             sys.exit(Fore.RED + 'Missing translation data.' + Style.RESET_ALL)
 
         url = get_url(conf) + 'export/locale/%s.%s?format=%s' % (
-            translation['locale'], translation['format'], translation['format'])
+            translation['locale'], translation['file_extension'], translation['format'])
 
         token = getattr(args, 'token')
         if not token:
