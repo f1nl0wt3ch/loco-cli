@@ -110,11 +110,11 @@ def pull(conf, args):
             Fore.RED + 'Could not find any translations to pull. Please make sure your configuration is formed correctly.' + Style.RESET_ALL)
 
     for translation in conf['translations']:
-        if not 'locale' in translation or not 'format' in translation or not 'file' in translation:
+        if not 'locale' in translation or not 'format' in translation or not 'file' in translation or 'charset' not in translation:
             sys.exit(Fore.RED + 'Missing translation data.' + Style.RESET_ALL)
 
-        url = get_url(conf) + 'export/locale/%s.%s?format=%s' % (
-            translation['locale'], translation['file_extension'], translation['format'])
+        url = get_url(conf) + 'export/locale/%s.%s?format=%s&charset=%s' % (
+            translation['locale'], translation['file_extension'], translation['format'], translation['charset'])
 
         token = getattr(args, 'token')
         if not token:
